@@ -1,0 +1,94 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LogicSimulator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="800"
+		Width="1400" Height="800"
+        x:Class="LogicSimulator.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LogicSimulator">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Styles>
+		<Style Selector="ListBoxItem">
+			<Setter Property="Padding" Value="0"/>
+		</Style>
+		<Style Selector="Border.b">
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#0d8"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="Padding" Value="6"/>
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="Margin" Value="-5"/>
+			<Setter Property="Padding" Value="4"/>
+			<Setter Property="MinHeight" Value="0"/>
+		</Style>
+		
+		<StyleInclude Source="/Styles/Animation.axaml"/>
+	</Window.Styles>
+
+	<DockPanel>
+		<Menu DockPanel.Dock="Top" ZIndex="10" Background="White">
+			<MenuItem Header="Файл">
+				<MenuItem Header="Создать новый проект" Command="{Binding Comm}" CommandParameter="Create"/>
+				<MenuItem Header="Открыть проект" Command="{Binding Comm}" CommandParameter="Open"/>
+				<MenuItem Header="Сохранить текущую схему" Command="{Binding Comm}" CommandParameter="Save" IsEnabled="{Binding CanSave}"/>
+				<MenuItem Header="Сохранить проект как..." Command="{Binding Comm}" CommandParameter="SaveAs"/>
+				<MenuItem Header="Выйти в лаунчер" Command="{Binding Comm}" CommandParameter="ExitToLauncher"/>
+				<MenuItem Header="Выйти" Command="{Binding Comm}" CommandParameter="Exit"/>
+			</MenuItem>
+			<MenuItem Header="Опции">
+				<CheckBox IsChecked="{Binding LockSelfConnect}">Блокировать самоподключку</CheckBox>
+			</MenuItem>
+		</Menu>
+		<Grid ColumnDefinitions="*,3*,*">
+			<Panel Grid.Column="1">
+				<!--
+				<TextBlock Text="{Binding Logg}" Background="AliceBlue"/>-->
+				<Canvas Tag="Scene" Name="Canvas" Background="#0000"/>
+			</Panel>
+			<ListBox Items="{Binding ItemTypes}" SelectedIndex="{Binding SelectedItem}" Name="Gates" VirtualizationMode="None">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<ContentControl Content="{Binding}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<Grid Grid.Column="2" RowDefinitions="auto,*" DoubleTapped="DTapped">
+				<Border Classes="b" BorderBrush="#4df" Background="White">
+					<Grid ColumnDefinitions="*,auto">
+						<TextBlock Tag="p_name" Text="{Binding ProjName}"/>
+						<Button Grid.Column="1" Padding="2" Margin="6 -4 0 -4" Command="{Binding NewItem}">
+							<Image Width="24" Height="24" Source="/Assets/NewItem.png"/>
+						</Button>
+					</Grid>
+				</Border>
+				<ListBox Grid.Row="1" Padding="10 4 0 0" Items="{Binding Schemes}" VirtualizationMode="None">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border Classes="b">
+								<Grid ColumnDefinitions="*,auto,auto,auto">
+									<TextBlock Text="{Binding}" Tag="{Binding}"/>
+									<Button Grid.Column="1" Padding="2" Margin="6 -4 4 -4" Command="{Binding Open}" IsVisible="{Binding CanOpenMe}" Name="OpenScheme">
+										<Image Width="24" Height="24" Source="/Assets/Open.png"/>
+									</Button>
+									<Button Grid.Column="2" Padding="2" Margin="0 -4 4 -4" Command="{Binding NewItem}" Name="NewScheme">
+										<Image Width="24" Height="24" Source="/Assets/NewItem.png"/>
+									</Button>
+									<Button Grid.Column="3" Padding="2" Margin="0 -4 0 -4" Command="{Binding Delete}" IsVisible="{Binding CanUseSchemeDeleter}">
+										<Image Width="24" Height="24" Source="/Assets/TrashCan.png"/>
+									</Button>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</Grid>
+		</Grid>
+	</DockPanel>
+</Window>

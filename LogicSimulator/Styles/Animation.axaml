@@ -1,0 +1,86 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+			<Rectangle Classes="anim" Width="100" Height="100" Fill="Red"/>
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="Line.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+
+	<Style Selector="Polyline.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+	
+	<Style Selector="Rectangle.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+
+	<Style Selector="Ellipse.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+
+	<Style Selector="Polygon.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+
+	<Style Selector="Path.anim">
+		<Style.Animations>
+			<Animation Duration="0:0:1" IterationCount="INFINITE" Easing="SineEaseInOut" PlaybackDirection="Alternate">
+				<KeyFrame Cue="0%">
+					<Setter Property="Opacity" Value="1" />
+				</KeyFrame>
+				<KeyFrame Cue="50%">
+					<Setter Property="Opacity" Value="0" />
+				</KeyFrame>
+			</Animation>
+		</Style.Animations>
+	</Style>
+</Styles>

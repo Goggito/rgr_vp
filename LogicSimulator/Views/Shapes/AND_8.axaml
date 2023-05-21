@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="{Binding UC_Width}" d:DesignHeight="{Binding UC_Height}"
+             Width="{Binding UC_Width}" Height="{Binding UC_Height}"
+			 x:Class="LogicSimulator.Views.Shapes.AND_8"
+			 Tag="Gate">
+	
+	<Canvas Tag="Gate">
+		<Border Tag="Body" Margin="{Binding BodyMargin}" Background="#08c" BorderThickness="{Binding BodyStrokeSize}" BorderBrush="#4cf" Width="{Binding BodyWidth}" Height="{Binding BodyHeight}" CornerRadius="{Binding BodyRadius}">
+			<Panel>
+				<TextBlock Tag="Body" FontSize="{Binding FontSizze}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">AND</TextBlock>
+				<Image Tag="Resizer" Width="{Binding ImageSize}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="{Binding ImageMargins}" Height="{Binding ImageSize}" Source="avares://LogicSimulator/Assets/Resizer.png"/>
+			</Panel>
+		</Border>
+	</Canvas>
+</UserControl>

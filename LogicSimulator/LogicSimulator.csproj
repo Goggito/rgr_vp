@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+	<AvaloniaResource Include="Styles\**" />
+    <None Remove=".gitignore" />
+    <None Remove="Assets\Deleter.png" />
+    <None Remove="Assets\NewItem.png" />
+    <None Remove="Assets\Resizer.png" />
+    <None Remove="Assets\TrashCan.png" />
+    <None Remove="Assets\vectorasd-logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootDescriptor Include="Roots.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.19" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.19" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.19" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.19" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\LauncherWindow.axaml.cs">
+      <DependentUpon>LauncherWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\AND_8.axaml.cs">
+      <DependentUpon>AND_8.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\NAND_2.axaml.cs">
+      <DependentUpon>NAND_2.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\Button.axaml.cs">
+      <DependentUpon>Button.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\LightBulb.axaml.cs">
+      <DependentUpon>LightBulb.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\OR_8.axaml.cs">
+      <DependentUpon>OR_8.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\Switch.axaml.cs">
+      <DependentUpon>Switch.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\SuM.axaml.cs">
+      <DependentUpon>SuM.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\FlipFlop.axaml.cs">
+      <DependentUpon>FlipFlop.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\XOR_2.axaml.cs">
+      <DependentUpon>XOR_2.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\OR_2.axaml.cs">
+      <DependentUpon>OR_2.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\NOT.axaml.cs">
+      <DependentUpon>NOT.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shapes\AND_2.axaml.cs">
+      <DependentUpon>AND_2.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

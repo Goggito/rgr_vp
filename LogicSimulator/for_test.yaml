@@ -1,0 +1,12 @@
+---
+name: Newy
+created: 1684121649
+modified: 1684121677
+items:
+	-
+		id: 0
+		pos: $p$308,156
+		size: $s$71,71
+		base_size: 25
+joins: []
+states: "00"
